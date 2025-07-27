@@ -1,0 +1,6 @@
+# for local development install jupyter
+jupyter==1.1.1
+
+# for production
+langchain[openai]==0.3.28
+python-dotenv==1.1.1

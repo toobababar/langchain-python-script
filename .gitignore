@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Virtual environments
+venv/
+
+# Environment variables
+.env
+
+# Logs
+logs/
+langchain_logs/
+*.trace.json
+
+# MacOS / Linux / Windows files
+.DS_Store
+Thumbs.db
