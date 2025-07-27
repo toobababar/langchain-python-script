@@ -14,25 +14,6 @@ This tool automates the process of **inference across multiple prompts**, taking
 - Automates prompt response pairing for massive input datasets.
 - Fully configurable via `.env` and supports `LangSmith` tracing for evaluation.
 
-## Folder Structure
-
-root/<br>
-│<br>
-├── src/<br>
-│ ├── main.py # Main driver script<br>
-│ ├── model_handler.py # Loads LLM model and handles prompt invocation<br>
-│ ├── utils.py # File reading/writing helpers<br>
-│ └── init.py<br>
-│<br>
-├── input_prompts/ # Place input_prompts.jsonl prompt files here<br>
-├── output_responses/ # Processed responses will be saved here<br>
-│ └── .gitkeep # Ensures folder is tracked in Git<br>
-│<br>
-├── .env # Store your API keys and LangSmith config<br>
-├── .gitignore<br>
-├── requirements.txt # All dependencies listed with versions<br>
-└── README.md<br>
-
 ## Input Format
 
 Input files must be in `.jsonl` (JSON Lines) format with one prompt per line:
