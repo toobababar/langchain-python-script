@@ -2,7 +2,7 @@ import logging
 import time
 from pathlib import Path
 # Importing custom modules
-from utils import setup_environment, read_prompts_from_jsonl, write_results_to_jsonl
+from utils import setup_environment, read_prompts_from_jsonl, write_results_to_csv
 from model_handler import get_model, run_prompt
 
 # --- Configuration ---
@@ -50,7 +50,7 @@ for file_path in input_files:
 
     # 4. Save the results
     output_file = OUTPUT_DIR / f"response_{file_path.stem}.csv"
-    write_results_to_jsonl(output_file, results)
+    write_results_to_csv(output_file, results)
     logging.info(f"Successfully saved results to {output_file.name}")
 
 logging.info(f"--- Batch processing complete at {time.ctime()} ---")
