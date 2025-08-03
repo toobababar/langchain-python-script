@@ -49,7 +49,7 @@ for file_path in input_files:
             results.append({"prompt": prompt, "error": str(e)})
 
     # 4. Save the results
-    output_file = OUTPUT_DIR / f"response_{file_path.stem}.jsonl"
+    output_file = OUTPUT_DIR / f"response_{file_path.stem}.csv"
     write_results_to_jsonl(output_file, results)
     logging.info(f"Successfully saved results to {output_file.name}")
 
