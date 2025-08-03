@@ -4,13 +4,13 @@ This is a Python-based automation script powered by **LangChain** and **OpenAI's
 
 ## Project Overview
 
-This tool automates the process of **inference across multiple prompts**, taking input prompt files (`.jsonl` format) and returning structured responses in the same format. These output files contain both the original prompt and its corresponding LLM-generated response making them perfect candidates for supervised fine-tuning or instruction-tuning pipelines.
+This tool automates the process of **inference across multiple prompts**, taking input prompt files (`.jsonl` format) and returning structured responses in the comma seperated value format. These output files contain both the original prompt and its corresponding LLM-generated response making them perfect candidates for supervised fine-tuning or instruction-tuning pipelines.
 
 ## Key Features
 
 - **Batch Processing of Prompts** using LangChain’s powerful abstractions.
 - Uses **OpenAI GPT-4o-mini** for fast and efficient inferencing.
-- **Output-ready `.jsonl` format** for model training pipelines.
+- **Output-ready `.csv` format** for model training pipelines.
 - Automates prompt response pairing for massive input datasets.
 - Fully configurable via `.env` and supports `LangSmith` tracing for evaluation.
 
@@ -26,10 +26,15 @@ Input files must be in `.jsonl` (JSON Lines) format with one prompt per line:
 
 For each prompt, the model returns a structured output:
 
-```json
-{"prompt": "What is the capital of France?", "response": "The capital of France is Paris."}
-{"prompt": "Summarize the benefits of solar energy.", "response": "Solar energy is renewable, clean, and reduces electricity costs."}
+```csv
+prompt,response,error
+"What is the capital of France?","The capital of France is Paris.",""
+"Summarize the benefits of solar energy.","Solar energy is renewable, clean, and reduces electricity costs.",""
 ```
+**prompt:** The original input prompt.
+**response:** The model’s output.
+**error:** Any error message (if the model failed to return a response).
+
 ## Setup Instructions
 
 ### 1. Clone the repo:
