@@ -31,8 +31,10 @@ prompt,response,error
 "What is the capital of France?","The capital of France is Paris.",""
 "Summarize the benefits of solar energy.","Solar energy is renewable, clean, and reduces electricity costs.",""
 ```
-**prompt:** The original input prompt.\n
-**response:** The model’s output.\n
+**prompt:** The original input prompt.
+
+**response:** The model’s output.
+
 **error:** Any error message (if the model failed to return a response).
 
 ## Setup Instructions
