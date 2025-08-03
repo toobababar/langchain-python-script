@@ -2,6 +2,7 @@ import os
 import logging
 import getpass
 import json
+import csv
 from pathlib import Path
 from dotenv import load_dotenv
 
@@ -43,9 +44,20 @@ def read_prompts_from_jsonl(file_path: Path) -> list:
         logging.error(f"File not found: {file_path}")
     return prompts
 
-def write_results_to_jsonl(output_path: Path, results: list):
-    """Write a list of results to a JSONL file."""
+def write_results_to_csv(output_path: Path, results: list):
+    """Write a list of results to a CSV file."""
     # Ensure output directory exists
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    with open(output_path, "w", encoding="utf-8") as f:
-        json.dump(results, f, indent=2)
+    if output_path.suffix.lower() == ".csv":
+        fieldnames = ["prompt", "response", "error"]
+        with output_path.open("w", newline='', encoding="utf-8") as csvfile:
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+            writer.writeheader()
+            for row in results:
+                writer.writerow({
+                    "prompt": row.get("prompt", ""),
+                    "response": row.get("response", ""),
+                    "error": row.get("error", "")
+                })
+    else:
+        raise ValueError(f"Unsupported file format: {output_path.suffix}")
